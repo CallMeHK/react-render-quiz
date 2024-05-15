@@ -7,7 +7,10 @@ import {
 } from "react-router-dom"
 import ErrorPage from './ErrorPage'
 import { CountPage } from './quiz/Count.page'
+import { CountChildPropPage } from './quiz/CountChildProp.page'
 import { CountChildPage } from './quiz/CountChild.page'
+import { CountPropPage } from './quiz/CountProp.page'
+
 
 const Nav = () => {
   return <nav>
@@ -52,8 +55,16 @@ const router = createBrowserRouter(
           element={<CountPage />}
         />
         <Route
+          path="count-child-prop"
+          element={<CountChildPropPage />}
+        />
+        <Route
           path="count-child"
           element={<CountChildPage />}
+        />
+        <Route
+          path="count-prop"
+          element={<CountPropPage />}
         />
         {/*
         */}
