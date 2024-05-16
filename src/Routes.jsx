@@ -68,7 +68,9 @@ const router = createHashRouter(
         <Route index element={<div>
           <h1>Context</h1>
           <h3>A Very Useful Footgun</h3>
-          <p></p>
+          <p>
+          Each page holds a different form, that will hopefully help you understand why React contexts are both essential and garbage! Each component of the form contains a render counter. Before typing or clicking anything, try to guess what components will render when you type into the form!</p>
+          <img src='https://i.kym-cdn.com/photos/images/newsfeed/001/915/161/e0a.gif'/>
           </div>} />
         <Route
           path="form"
