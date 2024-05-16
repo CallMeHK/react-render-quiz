@@ -1,6 +1,6 @@
 import {
   createRoutesFromElements,
-  createBrowserRouter,
+  createHashRouter,
   Route,
   RouterProvider,
   Outlet,
@@ -51,10 +51,11 @@ const Nav = () => {
 </nav>
 }
 
-const router = createBrowserRouter(
+const router = createHashRouter(
   createRoutesFromElements(
     <Route
       path="/"
+      basename="/react-render-quiz"
       element={<div>
         <Nav/>
         <main className='container'>
