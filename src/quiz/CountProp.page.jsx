@@ -6,8 +6,6 @@ export const CountPropPage = () => {
   const FCProp = () => <CountComponent name='FCProp' />
   const UseCallBackProp = useCallback(() => <CountComponent name='UseCallBackProp' />, [])
 
-
-
   return <div>
     <h2>Counter Prop examples</h2>
     <div>

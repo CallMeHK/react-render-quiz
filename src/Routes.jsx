@@ -3,32 +3,47 @@ import {
   createBrowserRouter,
   Route,
   RouterProvider,
-  Outlet
+  Outlet,
+  useNavigate
 } from "react-router-dom"
 import ErrorPage from './ErrorPage'
 import { CountPage } from './quiz/Count.page'
 import { CountChildPropPage } from './quiz/CountChildProp.page'
 import { CountChildPage } from './quiz/CountChild.page'
 import { CountPropPage } from './quiz/CountProp.page'
+import { PlainForm } from './form/PlainForm'
+import { PropsForm } from './form/PropsForm'
+import { ContextForm } from './form/ContextForm'
+import { EffectContextForm } from './form/EffectContextForm'
+import { MemoContextForm } from './form/MemoContextForm'
+import { ReactiveVarForm } from './form/ReactiveVarForm'
+import { ContextReactiveVarForm } from './form/ContextReactiveVarForm'
+import { ContextReactiveVarMemoForm } from './form/ContextReactiveVarMemoForm'
+import { ReactHookForm } from './form/ReactHookForm'
 
 
 const Nav = () => {
+  const navigate = useNavigate()
   return <nav>
-  <ul style={{ marginLeft: 20 }}>
-    <li><strong>Acme Corp</strong></li>
+  <ul style={{ marginLeft: 20 }} onClick={() => navigate('/')}>
+    <li><strong>Context Demo</strong></li>
   </ul>
   <ul style={{ marginRight: 20 }}>
-    <li><a href="#" class="secondary">Services</a></li>
     <li>
-      <details class="dropdown">
+      <details className="dropdown">
         <summary>
-          Account
+          Pages
         </summary>
-        <ul dir="rtl">
-          <li><a href="#">Profile</a></li>
-          <li><a href="#">Settings</a></li>
-          <li><a href="#">Security</a></li>
-          <li><a href="#">Logout</a></li>
+        <ul dir="rtl" style={{ cursor: 'pointer' }}>
+          <li><a onClick={() => navigate('form')}>BasicForm</a></li>
+          <li><a onClick={() => navigate('props-form')}>PropsForm</a></li>
+          <li><a onClick={() => navigate('context-form')}>ContextForm</a></li>
+          <li><a onClick={() => navigate('effect-context-form')}>EffectContextForm</a></li>
+          <li><a onClick={() => navigate('memo-context-form')}>MemoContextForm</a></li>
+          <li><a onClick={() => navigate('reactive-var-form')}>ReactiveVarForm</a></li>
+          <li><a onClick={() => navigate('context-reactive-var-form')}>ContextReactiveVarForm</a></li>
+          <li><a onClick={() => navigate('context-reactive-var-memo-form')}>CRVMemoForm</a></li>
+          <li><a onClick={() => navigate('react-hook-form')}>ReactHookForm</a></li>
         </ul>
       </details>
     </li>
@@ -49,25 +64,47 @@ const router = createBrowserRouter(
       errorElement={<ErrorPage />}
     >
       <Route errorElement={<ErrorPage />}>
-        <Route index element={<div>hello</div>} />
+        <Route index element={<div>
+          <h1>Context</h1>
+          <h3>A Very Useful Footgun</h3>
+          <p></p>
+          </div>} />
         <Route
-          path="count"
-          element={<CountPage />}
+          path="form"
+          element={<PlainForm />}
         />
         <Route
-          path="count-child-prop"
-          element={<CountChildPropPage />}
+          path="props-form"
+          element={<PropsForm />}
         />
         <Route
-          path="count-child"
-          element={<CountChildPage />}
+          path="context-form"
+          element={<ContextForm />}
         />
         <Route
-          path="count-prop"
-          element={<CountPropPage />}
+          path="effect-context-form"
+          element={<EffectContextForm />}
         />
-        {/*
-        */}
+        <Route
+          path="memo-context-form"
+          element={<MemoContextForm />}
+        />
+        <Route
+          path="reactive-var-form"
+          element={<ReactiveVarForm />}
+        />
+        <Route
+          path="context-reactive-var-form"
+          element={<ContextReactiveVarForm />}
+        />
+        <Route
+          path="context-reactive-var-memo-form"
+          element={<ContextReactiveVarMemoForm />}
+        />
+        <Route
+          path="react-hook-form"
+          element={<ReactHookForm />}
+        />
       </Route>
     </Route>
   )

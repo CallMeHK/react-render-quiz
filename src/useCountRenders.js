@@ -8,5 +8,8 @@ export const useCountRenders = (component) => {
   if(ref.current){
     ref.current.innerText = renderCount.current
   }
+  if (ref.current && ref.current > 1) {
+    ref.current.style.backgroundColor = 'red'
+  }
   return ref
 }
